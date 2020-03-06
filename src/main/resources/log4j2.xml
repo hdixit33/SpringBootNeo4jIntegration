@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="log-path">logs</Property>
+        <Property name="name">smart</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{dd-MM-yy HH:mm:ss,SSS} %-5p [%t] (%F:%L) %X - %m%n"/>
+        </Console>
+        <RollingFile name="RollingFile" fileName="${log-path}/${name}.log"
+                     filePattern="${log-path}/${date:yyyy-MM}/${name}-%d{yyyy-MM-dd}-%i.gz">
+            <PatternLayout pattern="%d{dd-MM-yy HH:mm:ss,SSS} %-5p [%t] (%F:%L) %X - %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+		<Logger name="com.ama.smart.fhir" level="INFO"/>
+        
+        <Logger name="org.springframework" level="INFO"/>
+      
+        <Root level="DEBUG">
+            <AppenderRef ref="Console"/> 
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
