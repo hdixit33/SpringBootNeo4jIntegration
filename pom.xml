@@ -36,16 +36,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-security</artifactId>
-			<version>2.2.0.BUILD-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-oauth2</artifactId>
-			<version>2.2.0.BUILD-SNAPSHOT</version>
-		</dependency>
+	
 
 
 		<dependency>
@@ -79,11 +70,23 @@
 			<scope>runtime</scope> <optional>true</optional> </dependency> <dependency> 
 			<groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> <scope>runtime</scope> 
 			</dependency> -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
+		  <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j</artifactId>
+            <version>3.5.14</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-embedded-driver</artifactId>
+            
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-bolt-driver</artifactId>
+
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -97,11 +100,7 @@
 
 		<!-- https://mvnrepository.com/artifact/ca.uhn.hapi.SpringBootNeo4j/hapi-SpringBootNeo4j-structures-dstu3 -->
 		
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20160810</version>
-		</dependency>
+		
 
 
 		<!-- <dependency> <groupId>org.springframework.restdocs</groupId> <artifactId>spring-restdocs-webtestclient</artifactId> 
@@ -117,7 +116,7 @@
 			</plugin>
 		</plugins>
 
-		<finalName>smart</finalName>
+		<finalName>SpringBootNeo4j</finalName>
 
 	</build>
 	<repositories>

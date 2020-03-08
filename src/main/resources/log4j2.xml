@@ -2,7 +2,7 @@
 <Configuration>
     <Properties>
         <Property name="log-path">logs</Property>
-        <Property name="name">smart</Property>
+        <Property name="name">springbootneo4j</Property>
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
@@ -18,7 +18,7 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-		<Logger name="com.ama.smart.fhir" level="INFO"/>
+		<Logger name="com.springbootneo4j" level="INFO"/>
         
         <Logger name="org.springframework" level="INFO"/>
       
