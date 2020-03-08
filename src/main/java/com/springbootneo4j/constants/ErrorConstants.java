@@ -7,4 +7,5 @@ public class ErrorConstants {
 	public static Integer INTERNAL_SERVER_ERROR_CODE = 5000;
 	public static String INTERNAL_SERVER_ERROR_MSG = "Internal Server Error"; 
 	public static String NULL_INPUT_MSG = "" +" cannot be null";
+	public static String FIELD_ALREADY_EXISTS = "" +" already exists.Try with new one";
 }

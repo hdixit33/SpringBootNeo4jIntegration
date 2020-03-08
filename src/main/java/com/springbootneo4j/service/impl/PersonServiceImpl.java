@@ -82,12 +82,12 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	public PersonDto deletePerson(String uuid) {
 		Person personEntity = personRepository.findByUuid(uuid);
-		personRepository.delete(personEntity);
 		PersonDto personDto = new PersonDto();
 		personDto.setEmail(personEntity.getEmail());
 		personDto.setName(personEntity.getName());
 		personDto.setPhoneNumber(personEntity.getPhoneNumber());
 		personDto.setUuid(personEntity.getUuid());
+		personRepository.delete(personEntity);
 		return personDto;
 	}
 	

@@ -38,7 +38,7 @@ public class PersonController {
 	@RequestMapping(path = "/create", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.POST)
 	public PersonDto createPerson(@RequestBody PersonDto person) {
 		
-			personValidatorService.validateRequest(person);
+			personValidatorService.validateRequest(person, "create");
 			return personService.createPerson(person);
 
 	}
@@ -54,7 +54,8 @@ public class PersonController {
 	public PersonDto updatePerson(@RequestBody PersonDto person,
 			@PathVariable("uuid") String uuid) {
 		personValidatorService.validateUuid(uuid);
-		personValidatorService.validateRequest(person);
+		person.setUuid(uuid);
+		personValidatorService.validateRequest(person, "update");
 		return personService.updatePerson(person, uuid);
 	}
 	

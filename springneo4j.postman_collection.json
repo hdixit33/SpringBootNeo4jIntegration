@@ -68,6 +68,17 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "Delete Person",
+			"request": {
+				"url": "http://localhost:8082/springbootneo4j/person/delete/e33c1834-c5e0-4635-99fd-95980e67ce19",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
