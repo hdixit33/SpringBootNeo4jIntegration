@@ -1,0 +1,73 @@
+{
+	"variables": [],
+	"info": {
+		"name": "springneo4j",
+		"_postman_id": "8e4033fb-4393-d290-6231-6a967bbfc3b3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Person",
+			"request": {
+				"url": "http://localhost:8082/springbootneo4j/person/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Himanshu\",\n\t\"email\" : \"himanshudixit33@gmail.com\",\n\t\"phoneNumber\" : \"1234\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Person",
+			"request": {
+				"url": "http://localhost:8082/springbootneo4j/person/update/e33c1834-c5e0-4635-99fd-95980e67ce19",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Amit235\",\n\t\"email\" : \"amit@test.com\",\n\t\"phoneNumber\" : \"1234\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Persons",
+			"request": {
+				"url": "http://localhost:8082/springbootneo4j/person/get",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Connect 2 Persons",
+			"request": {
+				"url": "http://localhost:8082/springbootneo4j/person/linkPersons/e33c1834-c5e0-4635-99fd-95980e67ce19",
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
