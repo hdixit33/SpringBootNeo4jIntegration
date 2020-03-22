@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.Ordered;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -23,6 +24,7 @@ import org.springframework.web.filter.CorsFilter;
 @ComponentScan("com")
 @EntityScan(basePackages = "com.springbootneo4j.entity")
 @EnableNeo4jRepositories(basePackages = { "com.springbootneo4j.repository" })
+@EnableTransactionManagement
 public class SpringBootNeo4jApplicationStarter extends
 		SpringBootServletInitializer {
 

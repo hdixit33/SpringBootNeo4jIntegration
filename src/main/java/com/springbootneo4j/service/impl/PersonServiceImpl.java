@@ -7,6 +7,8 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.springbootneo4j.dto.PersonDto;
 import com.springbootneo4j.entity.Person;
@@ -19,6 +21,7 @@ import com.springbootneo4j.service.PersonService;
  * The Class PersonServiceImpl.
  */
 @Service
+@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
 public class PersonServiceImpl implements PersonService {
 	
 	/** The person repository. */
@@ -28,6 +31,7 @@ public class PersonServiceImpl implements PersonService {
 	/* (non-Javadoc)
 	 * @see com.springbootneo4j.service.PersonService#createPerson(com.springbootneo4j.dto.PersonDto)
 	 */
+	@Transactional(propagation = Propagation.REQUIRED)
 	public PersonDto createPerson(PersonDto person) {
 		Person personEntity = new Person();
 		personEntity.setUuid(UUID.randomUUID().toString());
@@ -44,13 +48,13 @@ public class PersonServiceImpl implements PersonService {
 	/* (non-Javadoc)
 	 * @see com.springbootneo4j.service.PersonService#updatePerson(com.springbootneo4j.dto.PersonDto, java.lang.String)
 	 */
+	@Transactional(propagation = Propagation.REQUIRED)
 	public PersonDto updatePerson(PersonDto person, String uuid) {
 
 		Person personEntity = personRepository.findByUuid(uuid);
 		personEntity.setName(person.getName());
 		personEntity.setEmail(person.getEmail());
 		personEntity.setPhoneNumber(person.getPhoneNumber());
-		personEntity.setCreatedOn(new Date());
 		personEntity.setModifiedOn(new Date());
 		person.setUuid(personEntity.getUuid());
 		personRepository.save(personEntity);
@@ -80,6 +84,7 @@ public class PersonServiceImpl implements PersonService {
 	/* (non-Javadoc)
 	 * @see com.springbootneo4j.service.PersonService#deletePerson(java.lang.String)
 	 */
+	@Transactional(propagation = Propagation.REQUIRED)
 	public PersonDto deletePerson(String uuid) {
 		Person personEntity = personRepository.findByUuid(uuid);
 		PersonDto personDto = new PersonDto();
@@ -94,6 +99,7 @@ public class PersonServiceImpl implements PersonService {
 	/* (non-Javadoc)
 	 * @see com.springbootneo4j.service.PersonService#linkPersons(java.lang.String, java.lang.String)
 	 */
+	@Transactional(propagation = Propagation.REQUIRED)
 	public boolean linkPersons(String uuid1, String uuid2) {
 		Person personEntity = personRepository.findByUuid(uuid1);
 		Person personEntity2 = personRepository.findByUuid(uuid2);

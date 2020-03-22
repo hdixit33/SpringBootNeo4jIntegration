@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.springbootneo4j.entity.Person;
 
@@ -12,6 +14,7 @@ import com.springbootneo4j.entity.Person;
  * The Interface PersonRepository.
  */
 @Repository
+@Transactional(propagation = Propagation.MANDATORY)
 public interface PersonRepository extends Neo4jRepository<Person, Long> {
 	
 	/**

@@ -3,6 +3,8 @@ package com.springbootneo4j.service.impl;
 import org.h2.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import com.springbootneo4j.constants.ErrorConstants;
@@ -16,6 +18,7 @@ import com.springbootneo4j.repository.PersonRepository;
  * The Class PersonValidatorService.
  */
 @Service
+@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
 public class PersonValidatorService {
 	
 	/** The person repository. */
